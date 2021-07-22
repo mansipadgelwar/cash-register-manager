@@ -8,7 +8,50 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div class="container">
+        <h1>Cash Register Manager</h1>
+        <p>Enter the bill amount and cash given by the customer
+            and know minimum number of notes to return.
+        </p>
+        <div class="billAmount">
+           <label> Bill Amount:</label>
+           <input type="number" id="bill-amount" required>
+           <button id="btn-submit">Next</button> 
+        </div>
+
+        <div class="cashGiven">
+            <label> Cash Given:</label>
+            <input type="number" id="cash-given" required>
+            <button id="btn-check">Check</button> 
+         </div>
+         <div class="changeTable">
+             <label> Return Change: </label>
+             <div id="output">
+                <table>
+                    <tr>
+                    <th>No.of Notes</td>
+                    <td class="tableData"></td>
+                    <td class="tableData"></td>
+                    <td class="tableData"></td>
+                    <td class="tableData"></td>
+                    <td class="tableData"></td>
+                    <td class="tableData"></td>
+                    <td class="tableData"></td>
+                    </tr>
+                    <tr>
+                    <th>Note</td>
+                    <td>2000</td>
+                    <td>500</td>
+                    <td>100</td>
+                    <td>20</td>
+                    <td>10</td>
+                    <td>5</td>
+                    <td>1</td>
+                    </tr>
+                </table> 
+             </div>
+         </div>
+</div>
  <script src="app.js"></script>   
 </body>
 </html>

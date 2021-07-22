@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap');
+
+:root{
+    --primary-color: #4F46E5;
+    --secondary-color: #E0E7FF; 
+    --off-white: #E5E7EB ;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--secondary-color);
+    font-family: 'Otomanopee One', sans-serif;
+}
+.container{
+    max-width: 600px;
+    margin: 4rem auto;
+    padding-top: 1.5rem;   
+    color: white;
+    background-color: var(--primary-color);   
+    border-radius: 0.3rem;
+    padding: 1.5rem 1rem;
+    box-shadow: 0px 0px 5px 0px var(--off-white);
+    text-align: center;
+
+}
+
+label{
+    display: block;
+    margin-bottom: 0.5;
+    font-weight: bold;
+    padding: 0.5rem;
+    color:var(--secondary-color)
+}
+
+input{
+    width: 45%;
+    padding: 0.5rem; 
+    display: block;
+    margin: auto;
+}
+
+button{    
+    
+    border-radius: 0.5rem;
+    background-color: black;
+    color: white;
+    border: 1px solid var(--primary-color);
+    padding: 0.5rem;
+    cursor: pointer;
+    display: block;
+    margin:1rem auto;
+   
+}
+
+.cashGiven{
+    display: none;
+}
+
+.changeTable{
+    display: none;
+}
+
+
+
+table{
+    width: 100%;
+    table-layout: fixed;
+}
+
+#output table,th,td{
+    color: var(--primary-color);
+    background-color: var(--off-white);
+    border: 1px solid var(--primary-color);
+
+}
+
+.tableData{
+    background-color: white;
+}
