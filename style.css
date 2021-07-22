@@ -42,6 +42,14 @@ input{
     margin: auto;
 }
 
+.cashGiven{
+    display: none;
+}
+
+.changeTable{
+    display: none;
+}
+
 button{    
     
     border-radius: 0.5rem;
