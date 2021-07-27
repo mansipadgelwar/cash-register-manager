@@ -15,7 +15,8 @@ body{
     font-family: 'Otomanopee One', sans-serif;
 }
 .container{
-    max-width: 600px;
+    max-width: 100%;
+    width: 650px;
     margin: 4rem auto;
     padding-top: 1.5rem;   
     color: white;
@@ -46,8 +47,24 @@ input{
     display:none;
 }
 
-.changeTable{
+th{
+    
+    width: 70px;
+}
+
+td{
+    
+    width: 50px;  
+}
+
+#changeTable{
     display:none;
+    overflow: auto;
+    
+}
+table{
+    table-layout: fixed;
+    width: 100%;
 }
 
 button{    
@@ -77,4 +94,5 @@ table{
 
 .tableData{
     background-color: white;
+    color: black;
 }
