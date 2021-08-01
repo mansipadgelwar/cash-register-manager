@@ -1,64 +1,64 @@
 var billAmount = document.querySelector("#bill-amount");
-var cashGivenInput = document.querySelector("#cash-given");
 var cashInput = document.querySelector("#cash-input");
 var btnSubmit = document.querySelector("#btn-submit");
-var btnCheck = document.querySelector("#btn-check");
-var cashDiv = document.querySelector("#cashGiven");
-var notesToReturn = document.querySelectorAll(".tableData");
-var table = document.querySelector("#changeTable");
-var error = document.querySelector("#error");
+const btnCheck = document.querySelector("#btn-check");
+const cashDiv = document.querySelector("#cashGiven");
+const notesToReturn = document.querySelectorAll(".tableData");
+const table = document.querySelector("#changeTable");
+const message = document.querySelector("#error");
 
-let noOfNotes = [];
-let notesAvailable = [2000,500,100,20,10,5,1];
+const notesAvailable = [2000, 500, 100, 20, 10, 5, 1];
 
+//const billAmount = Number(billAmt.value);
 
-btnSubmit.addEventListener("click",()=>{
-    billAmount = Number(billAmount.value);
+btnSubmit.addEventListener("click", function validateBillAmount() {
+    hideMessage();     
     
-    if(billAmount <= 0){
-        error.innerHTML = "Enter valid amount.";
+    if(billAmount.value > 0){
+        btnSubmit.style.display = "none";
+        cashDiv.style.display = "block";       
     }
     else{  
-        btnSubmit.style.display = "none";
-        cashDiv.style.display = "block";   
+        showMessage("Enter valid bill amount.");
     }
 });
 
-btnCheck.addEventListener("click", ()=>{
-    
-   cashInput = Number(cashInput.value);
-   if(cashInput <= 0){
-    error.innerHTML = "Enter valid bill amount & cash given to continue";
+btnCheck.addEventListener("click", function validateCashGiven(){
+   hideMessage(); 
+    if(cashInput.value > billAmount.value){
+    const returnAmount = parseInt(cashInput.value) - parseInt(billAmount.value);
+    calculateChange(returnAmount);
+    btnCheck.style.display = "none";
+    table.style.display = "block";
+    //error.innerHTML = "";
    }
+    else if(cashInput.value === billAmount.value){
+       showMessage("No change to be returned"); 
+    }  
     else{
-        btnCheck.style.display = "none";
-        table.style.display = "block";
-        
+        showMessage("Enter valid cash amount."); 
     }
-    
-
-
- let returnAmount = parseInt(cashInput) - parseInt(billAmount);
- //console.log(returnAmount);
- 
- for(let i = 0;i < notesAvailable.length;i++){
-     noOfNotes[i] = Math.floor(returnAmount/notesAvailable[i]);
-     returnAmount = returnAmount - notesAvailable[i] * noOfNotes[i];
-     notesToReturn[i].innerHTML = noOfNotes[i];
-     //console.log(noOfNotes[i]);
-    if(returnAmount === 0){
-        break;
-    }
- }
-
- for(const notesAvailable of notesToReturn){
-     if(notesAvailable.innerHTML == "0"){
-         notesAvailable.innerHTML = "";
-     }
- }
-
- noOfNotes = [];
-
 });
+
+function hideMessage(){
+    message.style.display = "none";
+}
+
+function showMessage(msg){
+    message.style.display = "block";
+    message.innerText = msg;
+}
+
+function calculateChange(returnAmount){
+    for(let i = 0;i < notesAvailable.length;i++){
+        const numberOfNotes = Math.trunc(returnAmount / notesAvailable[i]);
+        returnAmount %= notesAvailable[i];
+        notesToReturn[i].innerText = numberOfNotes;
+    }
+}
+ 
+
+ 
+
 
 

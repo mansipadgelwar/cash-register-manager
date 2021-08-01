@@ -43,7 +43,7 @@ input{
     margin: auto;
 }
 
-.cashGiven{
+#cashGiven{
     display:none;
 }
 
