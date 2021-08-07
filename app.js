@@ -1,4 +1,4 @@
-var billAmount = document.querySelector("#bill-amount");
+var billAmt = document.querySelector("#bill-amount");
 var cashInput = document.querySelector("#cash-input");
 var btnSubmit = document.querySelector("#btn-submit");
 const btnCheck = document.querySelector("#btn-check");
@@ -9,12 +9,14 @@ const message = document.querySelector("#error");
 
 const notesAvailable = [2000, 500, 100, 20, 10, 5, 1];
 
-//const billAmount = Number(billAmt.value);
+
 
 btnSubmit.addEventListener("click", function validateBillAmount() {
-    hideMessage();     
+    hideMessage();    
+    const billAmount = Number(billAmt.value);
+    const cashGiven = Number(cashInput.value); 
     
-    if(billAmount.value > 0){
+    if(billAmount > 0){
         btnSubmit.style.display = "none";
         cashDiv.style.display = "block";       
     }
@@ -25,14 +27,16 @@ btnSubmit.addEventListener("click", function validateBillAmount() {
 
 btnCheck.addEventListener("click", function validateCashGiven(){
    hideMessage(); 
-    if(cashInput.value > billAmount.value){
-    const returnAmount = parseInt(cashInput.value) - parseInt(billAmount.value);
+    const billAmount = Number(billAmt.value);
+    const cashGiven = Number(cashInput.value);
+    if(cashGiven > billAmount){
+    const returnAmount = parseInt(cashGiven) - parseInt(billAmount);
     calculateChange(returnAmount);
     btnCheck.style.display = "none";
     table.style.display = "block";
     //error.innerHTML = "";
    }
-    else if(cashInput.value === billAmount.value){
+    else if(cashGiven === billAmount){
        showMessage("No change to be returned"); 
     }  
     else{
