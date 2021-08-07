@@ -32,7 +32,6 @@ btnCheck.addEventListener("click", function validateCashGiven(){
     if(cashGiven > billAmount){
     const returnAmount = parseInt(cashGiven) - parseInt(billAmount);
     calculateChange(returnAmount);
-    btnCheck.style.display = "none";
     table.style.display = "block";
     //error.innerHTML = "";
    }
@@ -40,7 +39,7 @@ btnCheck.addEventListener("click", function validateCashGiven(){
        showMessage("No change to be returned"); 
     }  
     else{
-        showMessage("Enter valid cash amount."); 
+        showMessage("Cash provided is less than bill amount."); 
     }
 });
 
