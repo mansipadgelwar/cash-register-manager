@@ -12,3 +12,5 @@ A cash register manager which helps the user by telling how he/she can return th
 - HTML
 - CSS
 - JavaScript
+
+Link: https://mansi-cash-register-manager.netlify.app/
